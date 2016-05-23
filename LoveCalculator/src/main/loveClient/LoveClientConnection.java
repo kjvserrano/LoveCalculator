@@ -1,4 +1,4 @@
-package loveClient;
+package main.loveClient;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;

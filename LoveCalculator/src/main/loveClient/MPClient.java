@@ -1,4 +1,4 @@
-package loveClient;
+package main.loveClient;
 
 public class MPClient {
 	public static void main(String[] args){

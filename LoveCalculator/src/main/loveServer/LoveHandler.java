@@ -1,4 +1,4 @@
-package loveServer;
+package main.loveServer;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;

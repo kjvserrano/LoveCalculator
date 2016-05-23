@@ -1,4 +1,4 @@
-package loveServer;
+package main.loveServer;
 
 public enum LoveAlgorithm {
 	FLAMES,
