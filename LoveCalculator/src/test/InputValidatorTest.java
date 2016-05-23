@@ -4,11 +4,19 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class InputValidatorTest {
+import main.loveClient.InputValidator;
 
+public class InputValidatorTest {
+	InputValidator inputValidatorUUT= new InputValidator();
+	
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void validInput() {
+		assertTrue(inputValidatorUUT.validateInput("Bob,Joe"));
+	}
+	
+	@Test
+	public void noInput() {
+		assertFalse(inputValidatorUUT.validateInput(""));
 	}
 
 }
