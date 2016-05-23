@@ -8,6 +8,12 @@ public class InputValidator {
 			return false;
 		}
 		
+		for(String retval:inputList){
+			if(retval.length()==0){
+				return false;
+			}
+		}
+		
 		return true;
 	}
 }

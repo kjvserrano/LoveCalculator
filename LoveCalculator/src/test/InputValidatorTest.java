@@ -28,5 +28,20 @@ public class InputValidatorTest {
 	public void threeInputs() {
 		assertFalse(inputValidatorUUT.validateInput("Bob,Joe,Ann"));
 	}
+	
+	@Test
+	public void oneComma() {
+		assertFalse(inputValidatorUUT.validateInput(","));
+	}
+	
+	@Test
+	public void commaOneInputAfter() {
+		assertFalse(inputValidatorUUT.validateInput(",Bob"));
+	}
+	
+	@Test
+	public void commaOneInputBefore() {
+		assertFalse(inputValidatorUUT.validateInput("Bob,"));
+	}
 
 }
