@@ -18,7 +18,6 @@ public class LoveClient {
 			clientConn.closeConnection();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			message = "[ERROR] Server query error";
 			e.printStackTrace();
 		}
 		return message;

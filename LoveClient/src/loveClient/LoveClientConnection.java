@@ -29,12 +29,13 @@ public class LoveClientConnection {
 	
 	public void sendToServer(String message) throws IOException{
 		System.out.println("[INFO] Sending message to server");
-		outToServer.writeBytes(message);
+		outToServer.writeUTF(message);
 	}
 	
 	public String readFromServer() throws IOException{
 		System.out.println("[INFO] Waiting for reply");
 		String message = inFromServer.readUTF();
+		System.out.println("[INFO] Received " + message + " from server");
 		return message;
 	}
 	

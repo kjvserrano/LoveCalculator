@@ -9,18 +9,18 @@ public class LoveServer {
 	
 	public LoveServer() throws IOException{
 		listenSocket = new ServerSocket(5000);
-		listenSocket.setSoTimeout(10000);
+		//listenSocket.setSoTimeout(10000);
 	}
 	
 	public LoveServer(ServerSocket serverSocket) throws IOException{
 		this.listenSocket = serverSocket;
-		this.listenSocket.setSoTimeout(1000);
+		//this.listenSocket.setSoTimeout(1000);
 	}
 	
 	public void startServer(LoveAlgorithm algo){
+		System.out.println("[INFO] Server Accepting Connections");
 		while(true){
 			try {
-				System.out.println("[INFO] Server Accepting Connections");
 				Socket clientSocket = listenSocket.accept();
 				LoveHandler loveHandler = new LoveHandler(clientSocket);
 				loveHandler.start();
