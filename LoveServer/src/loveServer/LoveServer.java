@@ -1,4 +1,4 @@
-package LoveServer;
+package loveServer;
 
 import java.io.IOException;
 import java.net.ServerSocket;

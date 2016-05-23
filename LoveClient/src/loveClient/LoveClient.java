@@ -1,4 +1,4 @@
-package LoveClient;
+package loveClient;
 
 public class LoveClient {
 
