@@ -9,7 +9,7 @@ public class LoveServer {
 	
 	public LoveServer() throws IOException{
 		listenSocket = new ServerSocket(5000);
-		listenSocket.setSoTimeout(1000);
+		listenSocket.setSoTimeout(10000);
 	}
 	
 	public LoveServer(ServerSocket serverSocket) throws IOException{
@@ -17,11 +17,17 @@ public class LoveServer {
 		this.listenSocket.setSoTimeout(1000);
 	}
 	
-	public void startServer() throws IOException{
+	public void startServer(LoveAlgorithm algo){
 		while(true){
-			Socket clientSocket = listenSocket.accept();
-			LoveHandler loveHandler = new LoveHandler(clientSocket);
-			loveHandler.start();
+			try {
+				System.out.println("[INFO] Server Accepting Connections");
+				Socket clientSocket = listenSocket.accept();
+				LoveHandler loveHandler = new LoveHandler(clientSocket);
+				loveHandler.start();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 
