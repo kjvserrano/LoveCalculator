@@ -4,13 +4,19 @@ import java.io.IOException;
 
 public class LoveClient {
 	LoveClientConnection clientConn;
+	LoveClientGUI loveClientGUI = new LoveClientGUI();
 	
 	public LoveClient(){
 		clientConn = new LoveClientConnection("127.0.0.1", 5000);
 	}
 	
-	public String loveQuery(){
-		String message = "";
+	public void start(){
+		String input = loveClientGUI.requestForInput();
+		String result = loveQuery(input);
+		loveClientGUI.printResult(result);
+	}
+	
+	public String loveQuery(String message){
 		try {
 			clientConn.connect();
 			clientConn.sendToServer("Hello?");
