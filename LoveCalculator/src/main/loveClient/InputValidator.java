@@ -2,8 +2,9 @@ package main.loveClient;
 
 public class InputValidator {
 	public boolean validateInput(String input){
-		//Empty String
-		if(input == ""){
+		
+		String[] inputList = input.split(",");
+		if(inputList.length!= 2){
 			return false;
 		}
 		

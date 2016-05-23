@@ -18,5 +18,15 @@ public class InputValidatorTest {
 	public void noInput() {
 		assertFalse(inputValidatorUUT.validateInput(""));
 	}
+	
+	@Test
+	public void oneInput() {
+		assertFalse(inputValidatorUUT.validateInput("Bob"));
+	}
+	
+	@Test
+	public void threeInputs() {
+		assertFalse(inputValidatorUUT.validateInput("Bob,Joe,Ann"));
+	}
 
 }
