@@ -7,13 +7,13 @@ import java.net.Socket;
 
 public class LoveHandler extends Thread {
 	private Socket clientSocket = null;
-	private DataInputStream clientInputStream;
-	private DataOutputStream clientOutputStream;
+	private DataInputStream inFromClient;
+	private DataOutputStream outToClient;
 	
 	public LoveHandler(Socket clientSocket) throws IOException{
 		this.clientSocket = clientSocket;
-		clientInputStream = new DataInputStream(this.clientSocket.getInputStream());
-		clientOutputStream = new DataOutputStream(this.clientSocket.getOutputStream());
+		inFromClient = new DataInputStream(this.clientSocket.getInputStream());
+		outToClient = new DataOutputStream(this.clientSocket.getOutputStream());
 	}
 	
 	public void run(){
@@ -39,13 +39,12 @@ public class LoveHandler extends Thread {
 	}
 	
 	public String readFromClient() throws IOException{
-		String message = clientInputStream.readUTF();
-		System.out.println(message);
+		String message = inFromClient.readUTF();
 		return message;
 	}
 	
 	public void sendToClient(String message) throws IOException{
-		clientOutputStream.writeBytes(message);
+		outToClient.writeBytes(message);
 	}
 	
 	public void closeConnection() throws IOException{
