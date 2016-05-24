@@ -22,7 +22,7 @@ public class LoveServer {
 		while(true){
 			try {
 				Socket clientSocket = listenSocket.accept();
-				LoveHandler loveHandler = new LoveHandler(clientSocket);
+				LoveHandler loveHandler = new LoveHandler(clientSocket, algo);
 				loveHandler.start();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block

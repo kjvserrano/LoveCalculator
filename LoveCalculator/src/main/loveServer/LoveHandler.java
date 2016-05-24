@@ -9,30 +9,45 @@ public class LoveHandler extends Thread {
 	private Socket clientSocket = null;
 	private DataInputStream inFromClient;
 	private DataOutputStream outToClient;
+	private LoveCalculator loveCalculator = null;
 	
-	public LoveHandler(Socket clientSocket) throws IOException{
+	public LoveHandler(Socket clientSocket, LoveAlgorithm algo) throws IOException{
 		System.out.println("[INFO] Client Connected");
 		this.clientSocket = clientSocket;
 		inFromClient = new DataInputStream(this.clientSocket.getInputStream());
 		outToClient = new DataOutputStream(this.clientSocket.getOutputStream());
+		
+		switch(algo){
+		case FLAMES:
+			loveCalculator = new FlamesCalculator();
+			break;
+		case TRUELOVE:
+			loveCalculator = new TrueLoveCalculator();
+			break;
+		}
 	}
 	
 	public void run(){
-		String message = "";
+		handleRequest();
+
+	}
+	
+	public void handleRequest(){
+		String messageIn = "";
+		String messageResult = "";
+		
 		try {
-			message = readFromClient();
+			messageIn = readFromClient();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		handleRequest(message);
-
-	}
-	
-	public void handleRequest(String message){
+		
 		//ADD Calculator Code Here
+		messageResult = loveCalculator.calculate(messageIn.split(",")[0], messageIn.split(",")[1]);
+		
 		try {
-			sendToClient(message);
+			sendToClient(messageResult);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

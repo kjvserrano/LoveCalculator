@@ -19,7 +19,7 @@ public class LoveClient {
 	public String loveQuery(String message){
 		try {
 			clientConn.connect();
-			clientConn.sendToServer("Hello?");
+			clientConn.sendToServer(message);
 			message = clientConn.readFromServer();
 			clientConn.closeConnection();
 		} catch (IOException e) {
