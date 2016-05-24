@@ -27,8 +27,49 @@ public class FlamesCalculatorTest {
 	}
 	@Test
 	public void flamesCountZero(){
-		int flamesCount = flamesUUT.flamesCount("Bobby Jones", "Bobby Jones");//"yn", "tv"
+		int flamesCount = flamesUUT.flamesCount("Bobby Jones", "Bobby Jones");
 		assertEquals(0,flamesCount);
 	}
+	
+	//FlamesResult
+	/*
+	1 = S
+	2 = E
+	3 = F
+	4 = E
+	5 = F
+	6 = M
+	7 = E
+	8 = A
+	9 = E
+	*/
+	@Test
+	public void flamesResultOne(){
+		char result = flamesUUT.flamesResult(1);
+		assertEquals('s',result);
+	}
+	
+	@Test
+	public void flamesResultThree(){
+		char result = flamesUUT.flamesResult(3);//F
+		assertEquals('f',result);
+	}
+	
+	@Test
+	public void flamesResultSix(){
+		char result = flamesUUT.flamesResult(6);//F
+		assertEquals('m',result);
+	}
+	
+	@Test
+	public void flamesResultNine(){
+		char result = flamesUUT.flamesResult(9);//F
+		assertEquals('e',result);
+	}
 
+	@Test
+	public void flamesResultZero(){
+		char result = flamesUUT.flamesResult(0);//N
+		assertEquals('n',result);
+	}
 }
