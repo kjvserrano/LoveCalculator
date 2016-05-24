@@ -9,7 +9,9 @@ public class TrueLoveCalculator extends LoveCalculator {
 	@Override
 	public String calculate(String inputA, String inputB) {
 		// TODO Auto-generated method stub
-		return null;
+		int tens = trueLoveCounter(inputA, inputB, "true");
+		int ones = trueLoveCounter(inputA, inputB, "love");
+		return trueLoveParse(tens*10 + ones);
 	}
 
 	public int trueLoveCounter(String paramA, String paramB, String compStr){
@@ -24,11 +26,15 @@ public class TrueLoveCalculator extends LoveCalculator {
 				}
 			}
 			for(int i = 0; i<inputB.length(); i++){
-				if(inputA.charAt(i)==retval){
+				if(inputB.charAt(i)==retval){
 					sum++;
 				}
 			}
 		}
 		return sum;
+	}
+	
+	private String trueLoveParse(int trueLoveScore){
+		return trueLoveScore + "% compatible";
 	}
 }
