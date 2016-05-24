@@ -15,6 +15,11 @@ public class InputValidatorTest {
 		assertTrue(inputValidatorUUT.validateInput("Bob,Joe"));
 	}
 	
+	@Test
+	public void validInputWithSpace() {
+		assertTrue(inputValidatorUUT.validateInput("Bob Martin,Joe Donald"));
+	}
+	
 	
 	//Tests for different numbers of inputs
 	@Test

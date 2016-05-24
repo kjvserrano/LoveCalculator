@@ -15,7 +15,7 @@ public class InputValidator {
 			}
 			
 			//if input contains non-alpha
-			if(!retval.matches("[a-zA-Z]+")){
+			if(!retval.matches("[a-zA-Z\\s]+")){
 				return false;
 			}
 		}
