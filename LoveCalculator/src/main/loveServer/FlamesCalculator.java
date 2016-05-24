@@ -5,7 +5,9 @@ public class FlamesCalculator extends LoveCalculator {
 	@Override
 	public String calculate(String inputA, String inputB) {
 		// TODO Auto-generated method stub
-		return null;
+		int flamesCount = flamesCount(inputA, inputB);
+		String result = flamesParse(flamesResult(flamesCount));
+		return result;
 	}
 	
 	public int flamesCount(String paramA, String paramB){
@@ -60,6 +62,27 @@ public class FlamesCalculator extends LoveCalculator {
 		}
 		
 		return 'x';
+	}
+	
+	public String flamesParse(char res){
+		switch(res){
+		case 'f':
+				return "Friendship";
+		case 'l':
+				return "Love";
+		case 'a':
+				return "Affection";
+		case 'm':
+				return "Marriage";
+		case 'e':
+				return "Enemy";
+		case 's':
+				return "Siblings";
+		case 'n':
+				return "Narcissist";
+		default:
+				return "Unknown";
+		}
 	}
 
 }

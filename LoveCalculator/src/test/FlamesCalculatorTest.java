@@ -72,4 +72,28 @@ public class FlamesCalculatorTest {
 		char result = flamesUUT.flamesResult(0);//N
 		assertEquals('n',result);
 	}
+	
+	@Test
+	public void flamesParseFriendship(){
+		String result = flamesUUT.flamesParse('f');
+		assertEquals("Friendship", result);
+	}
+	
+	@Test
+	public void flamesParseSibling(){
+		String result = flamesUUT.flamesParse('s');
+		assertEquals("Siblings", result);
+	}
+	
+	@Test
+	public void flamesCalculatorEnemy(){
+		String result = flamesUUT.calculate("Bob", "Joe");
+		assertEquals("Enemy", result);
+	}
+	@Test
+	public void flamesCalculatorMarriage(){
+		String result = flamesUUT.calculate("John Doe", "James Smith");
+		assertEquals("Marriage", result);
+	}
+	
 }
