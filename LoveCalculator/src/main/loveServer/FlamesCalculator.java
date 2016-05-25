@@ -5,12 +5,12 @@ public class FlamesCalculator extends LoveCalculator {
 	@Override
 	public String calculate(String inputA, String inputB) {
 		// TODO Auto-generated method stub
-		int flamesCount = flamesCount(inputA, inputB);
-		String result = flamesParse(flamesResult(flamesCount));
+		int flamesCount = removeSimilarLetters(inputA, inputB);
+		String result = flamesResultString(flamesResultChar(flamesCount));
 		return result;
 	}
 	
-	private int flamesCount(String paramA, String paramB){
+	private int removeSimilarLetters(String paramA, String paramB){
 		String inputA = paramA.toLowerCase();
 		String inputB = paramB.toLowerCase();
 		
@@ -23,7 +23,7 @@ public class FlamesCalculator extends LoveCalculator {
 		return inputA.length() + inputB.length();
 	}
 	
-	private char flamesResult(int flamesCount){
+	private char flamesResultChar(int flamesCount){
 		String flamesTextStr = "flames";
 		char[] flamesText = flamesTextStr.toCharArray();
 		int curPos = 1;
@@ -64,7 +64,7 @@ public class FlamesCalculator extends LoveCalculator {
 		return 'x';
 	}
 	
-	private String flamesParse(char res){
+	private String flamesResultString(char res){
 		switch(res){
 		case 'f':
 				return "Friendship";
