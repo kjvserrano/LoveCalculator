@@ -24,44 +24,27 @@ public class FlamesCalculator extends LoveCalculator {
 	}
 	
 	private char flamesResultChar(int flamesCount){
-		String flamesTextStr = "flames";
-		char[] flamesText = flamesTextStr.toCharArray();
-		int curPos = 1;
+		StringBuilder flamesText = new StringBuilder("flames");
+		int curPos=1;
 		
 		if(flamesCount == 0){
 			return 'n';
 		}
-		
 		for (int i = 0; i<5; i++){
 			int j = 1;
-			
-			for(j = 1; j<flamesCount;){
-				if(flamesText[curPos-1]!=' '){
-					j++;
-				}
-				
+			for(j=1;j<flamesCount;j++){
 				curPos++;
-				if(curPos == 7){
+				if(curPos > flamesText.length()){
 					curPos = 1;
 				}
 			}
-			
-			while(flamesText[curPos-1] == ' '){
-				curPos++;
-				if(curPos == 7){
-					curPos = 1;
-				}
-			}
-			flamesText[curPos-1]=' ';
-		}
-		
-		for(int i=0;i<6;i++){
-			if (flamesText[i]!=' '){
-				return flamesText[i];
+			flamesText.deleteCharAt(curPos-1);
+			if(curPos > flamesText.length()){
+				curPos = 1;
 			}
 		}
 		
-		return 'x';
+		return flamesText.charAt(curPos-1);
 	}
 	
 	private String flamesResultString(char res){

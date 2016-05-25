@@ -10,6 +10,18 @@ public class FlamesCalculatorTest {
 	FlamesCalculator flamesUUT = new FlamesCalculator();
 	
 	@Test
+	public void flamesCountOne(){
+		String result = flamesUUT.calculate("aa", "ab");
+		assertEquals("Siblings", result);
+	}
+	
+	@Test
+	public void flamesCountFriendship(){
+		String result = flamesUUT.calculate("asd", "abcd");
+		assertEquals("Friendship", result);
+	}
+	
+	@Test
 	public void flamesCalculatorLowerCase(){
 		String result = flamesUUT.calculate("bob", "joe");
 		assertEquals("Enemy", result);
