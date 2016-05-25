@@ -10,7 +10,7 @@ public class FlamesCalculator extends LoveCalculator {
 		return result;
 	}
 	
-	public int flamesCount(String paramA, String paramB){
+	private int flamesCount(String paramA, String paramB){
 		String inputA = paramA.toLowerCase();
 		String inputB = paramB.toLowerCase();
 		
@@ -23,7 +23,7 @@ public class FlamesCalculator extends LoveCalculator {
 		return inputA.length() + inputB.length();
 	}
 	
-	public char flamesResult(int flamesCount){
+	private char flamesResult(int flamesCount){
 		String flamesTextStr = "flames";
 		char[] flamesText = flamesTextStr.toCharArray();
 		int curPos = 1;
@@ -64,7 +64,7 @@ public class FlamesCalculator extends LoveCalculator {
 		return 'x';
 	}
 	
-	public String flamesParse(char res){
+	private String flamesParse(char res){
 		switch(res){
 		case 'f':
 				return "Friendship";
